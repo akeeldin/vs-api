@@ -5,7 +5,9 @@ var fs = require('fs');
    var contents = fs.readFileSync("public/index.html");
    context.succeed({
      statusCode: 200,
-     body: contents.toString(),
+     body: "Hello World",
      headers: {'Content-Type': 'text/html'}
    });
  };
+
+
