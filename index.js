@@ -156,7 +156,7 @@ exports.get = function(event, context) {
     context.succeed({
      statusCode: 200,
      //body: contents.toString(),
-     body: empid.toString() + emp_name + emp_status,
+     body: empid.toString(),
      headers: {'Content-Type': 'text/html'}
    });
 
