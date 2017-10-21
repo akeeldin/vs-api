@@ -9,17 +9,25 @@ Parameters:
     Description: AWS CodeStar projectID used to associate new resources to team members
 
 Resources:
-  GetHelloWorld:
+
+  Products:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: index.get
-      Runtime: nodejs4.3
-      Role:
-        Fn::ImportValue:
-          !Join ['-', [!Ref 'ProjectId', !Ref 'AWS::Region', 'LambdaTrustRole']]
+      Handler: products.handler
+      Runtime: nodejs6.10
       Events:
-        GetEvent:
+        ListProducts:
           Type: Api
           Properties:
-            Path: /
+            Path: /products
             Method: get
+        CreateProduct:
+          Type: Api
+          Properties:
+            Path: /products
+            Method: post
+        Product:
+          Type: Api
+          Properties:
+            Path: /products/{product}
+            Method: any
